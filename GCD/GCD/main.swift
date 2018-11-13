@@ -40,3 +40,21 @@ calculateDiffGroup.notify(queue: DispatchQueue.main) {
 }
 
 RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
+
+/*
+ 題目：回傳與目標值，最大的 diff 值
+ */
+class Solution {
+    func maxDiff(_ target: Int, _ list: [Int]) -> Int {
+        var max = -1
+        for e in list {
+            let diff = abs(target - e)
+            if diff > max  {
+                max = diff
+            }
+        }
+        return max
+    }
+}
+
+assert(Solution().maxDiff(5, [3, 2, 4, 5, 1, 7]) == 4)
